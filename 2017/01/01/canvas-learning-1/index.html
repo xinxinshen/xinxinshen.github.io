@@ -3,15 +3,57 @@
 <head>
   <meta charset="utf-8">
   
-  <title>firstPage | 沈新新的博客</title>
+  <title>HTML5 与 Canvas 游戏开发实战 | 沈新新的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="firstPage">
-<meta property="og:url" content="http://yoursite.com/firstPage/index.html">
+  <meta name="description" content="##第二章 Canvas基本功能
+基本步骤
+
+获取canvas上下文1var ctx = c.getContext(&amp;quot;2d&amp;quot;);  // c=canvas元素
+
+
+
+
+设置样式12ctx.fillStyle = &amp;quot;red&amp;quot;;       // 填充样式ctx.strokeStyle = &amp;quot;purple&amp;quot;;  // 边框样式
+
+
+
+
+创建路">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5 与 Canvas 游戏开发实战">
+<meta property="og:url" content="http://yoursite.com/2017/01/01/canvas-learning-1/index.html">
 <meta property="og:site_name" content="沈新新的博客">
-<meta property="og:updated_time" content="2016-12-31T03:04:50.000Z">
+<meta property="og:description" content="##第二章 Canvas基本功能
+基本步骤
+
+获取canvas上下文1var ctx = c.getContext(&amp;quot;2d&amp;quot;);  // c=canvas元素
+
+
+
+
+设置样式12ctx.fillStyle = &amp;quot;red&amp;quot;;       // 填充样式ctx.strokeStyle = &amp;quot;purple&amp;quot;;  // 边框样式
+
+
+
+
+创建路">
+<meta property="og:updated_time" content="2017-01-01T03:02:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="firstPage">
+<meta name="twitter:title" content="HTML5 与 Canvas 游戏开发实战">
+<meta name="twitter:description" content="##第二章 Canvas基本功能
+基本步骤
+
+获取canvas上下文1var ctx = c.getContext(&amp;quot;2d&amp;quot;);  // c=canvas元素
+
+
+
+
+设置样式12ctx.fillStyle = &amp;quot;red&amp;quot;;       // 填充样式ctx.strokeStyle = &amp;quot;purple&amp;quot;;  // 边框样式
+
+
+
+
+创建路">
   
     <link rel="alternate" href="/atom.xml" title="沈新新的博客" type="application/atom+xml">
   
@@ -64,10 +106,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-canvas-learning-1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/firstPage/index.html" class="article-date">
-  <time datetime="2016-12-31T03:04:50.000Z" itemprop="datePublished">2016-12-31</time>
+    <a href="/2017/01/01/canvas-learning-1/" class="article-date">
+  <time datetime="2017-01-01T03:01:03.000Z" itemprop="datePublished">2017-01-01</time>
 </a>
     
   </div>
@@ -78,7 +120,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      firstPage
+      HTML5 与 Canvas 游戏开发实战
     </h1>
   
 
@@ -86,17 +128,68 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>##第二章 Canvas基本功能</p>
+<h3 id="基本步骤"><a href="#基本步骤" class="headerlink" title="基本步骤"></a>基本步骤</h3><ul>
+<li><ol>
+<li>获取canvas上下文<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var ctx = c.getContext(&quot;2d&quot;);  // c=canvas元素</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><ol>
+<li>设置样式<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ctx.fillStyle = &quot;red&quot;;       // 填充样式</div><div class="line">ctx.strokeStyle = &quot;purple&quot;;  // 边框样式</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><ol>
+<li>创建路径</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.beginPath();             // 创建路径</div></pre></td></tr></table></figure>
+<ul>
+<li><ol>
+<li>移动光标</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.moveTo(100, 100); // 移动光标到坐标（100，100）处</div></pre></td></tr></table></figure>
+<ul>
+<li><ol>
+<li>定义路径</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.lineTo(150, 150); // 绘制直线</div></pre></td></tr></table></figure>
+<ul>
+<li><ol>
+<li>绘制</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.stroke();         // 开始绘制定义好的路径</div></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/firstPage/index.html" data-id="cixe2orz60001f4lx81hykfw6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/01/canvas-learning-1/" data-id="cixe2orz10000f4lxlbx3izvj" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CANVAS/">CANVAS</a></li></ul>
+
     </footer>
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2016/12/31/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
   
 </article>
 

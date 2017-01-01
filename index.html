@@ -65,6 +65,83 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-canvas-learning-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/01/canvas-learning-1/" class="article-date">
+  <time datetime="2017-01-01T03:01:03.000Z" itemprop="datePublished">2017-01-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/01/canvas-learning-1/">HTML5 与 Canvas 游戏开发实战</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##第二章 Canvas基本功能</p>
+<h3 id="基本步骤"><a href="#基本步骤" class="headerlink" title="基本步骤"></a>基本步骤</h3><ul>
+<li><ol>
+<li>获取canvas上下文<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var ctx = c.getContext(&quot;2d&quot;);  // c=canvas元素</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><ol>
+<li>设置样式<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ctx.fillStyle = &quot;red&quot;;       // 填充样式</div><div class="line">ctx.strokeStyle = &quot;purple&quot;;  // 边框样式</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><ol>
+<li>创建路径</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.beginPath();             // 创建路径</div></pre></td></tr></table></figure>
+<ul>
+<li><ol>
+<li>移动光标</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.moveTo(100, 100); // 移动光标到坐标（100，100）处</div></pre></td></tr></table></figure>
+<ul>
+<li><ol>
+<li>定义路径</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.lineTo(150, 150); // 绘制直线</div></pre></td></tr></table></figure>
+<ul>
+<li><ol>
+<li>绘制</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.stroke();         // 开始绘制定义好的路径</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/01/01/canvas-learning-1/" data-id="cixe2orz10000f4lxlbx3izvj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CANVAS/">CANVAS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/12/31/hello-world/" class="article-date">
@@ -100,7 +177,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/31/hello-world/" data-id="cixcncwt200014hlxurtt2p4i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/31/hello-world/" data-id="cixe2orz70002f4lxod5jxaoo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -119,15 +196,29 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CANVAS/">CANVAS</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CANVAS/" style="font-size: 10px;">CANVAS</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li></ul>
     </div>
   </div>
 
@@ -138,6 +229,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/01/01/canvas-learning-1/">HTML5 与 Canvas 游戏开发实战</a>
+          </li>
         
           <li>
             <a href="/2016/12/31/hello-world/">Hello World</a>
@@ -155,7 +250,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 沈新新<br>
+      &copy; 2017 沈新新<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
