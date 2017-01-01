@@ -52,9 +52,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -87,44 +87,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="HTML5-与-Canvas-游戏开发实战"><a href="#HTML5-与-Canvas-游戏开发实战" class="headerlink" title="HTML5 与 Canvas 游戏开发实战"></a>HTML5 与 Canvas 游戏开发实战</h1><p>##第二章 Canvas基本功能</p>
-<h3 id="基本步骤"><a href="#基本步骤" class="headerlink" title="基本步骤"></a>基本步骤</h3><ul>
-<li><ol>
-<li>获取canvas上下文<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var ctx = c.getContext(&quot;2d&quot;);  // c=canvas元素</div></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-<li><ol>
-<li>设置样式<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ctx.fillStyle = &quot;red&quot;;       // 填充样式</div><div class="line">ctx.strokeStyle = &quot;purple&quot;;  // 边框样式</div></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-<li><ol>
-<li>创建路径</li>
-</ol>
-</li>
-</ul>
+        <p>##第二章 Canvas基本功能</p>
+<h3 id="基本步骤"><a href="#基本步骤" class="headerlink" title="基本步骤"></a>基本步骤</h3><p>#####获取canvas上下文<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var ctx = c.getContext(&quot;2d&quot;);  // c=canvas元素</div></pre></td></tr></table></figure></p>
+<p>#####设置样式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ctx.fillStyle = &quot;red&quot;;       // 填充样式</div><div class="line">ctx.strokeStyle = &quot;purple&quot;;  // 边框样式</div></pre></td></tr></table></figure></p>
+<p>#####创建路径</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.beginPath();             // 创建路径</div></pre></td></tr></table></figure>
-<ul>
-<li><ol>
-<li>移动光标</li>
-</ol>
-</li>
-</ul>
+<p>#####移动光标</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.moveTo(100, 100); // 移动光标到坐标（100，100）处</div></pre></td></tr></table></figure>
-<ul>
-<li><ol>
-<li>定义路径</li>
-</ol>
-</li>
-</ul>
+<p>#####定义路径</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.lineTo(150, 150); // 绘制直线</div></pre></td></tr></table></figure>
-<ul>
-<li><ol>
-<li>绘制</li>
-</ol>
-</li>
-</ul>
+<p>#####绘制</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.stroke();         // 开始绘制定义好的路径</div></pre></td></tr></table></figure>
 <p>###绘制基本图形</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">// 矩形 4个参数: 起点x坐标，起点y坐标，矩形长, 矩形宽</div><div class="line">ctx.strokeRect(10, 10, 70, 40);  // 绘制路径矩形</div><div class="line">ctx.fillRect();                 // 绘制实心矩形</div><div class="line"></div><div class="line">// 圆形 6个参数：圆心x坐标，圆心y坐标，圆弧半径，起始角度，终止角度，是否逆时针</div><div class="line">ctx.arc(100, 100, 70, 0, 130 * Math.PI / 180, true); //绘制弧形路径-逆</div><div class="line">ctx.arc(100, 100, 70, 0, 130 * Math.PI / 180, false); //绘制弧形路径-顺</div><div class="line">ctx.fill();      //填充路径</div><div class="line"></div><div class="line">// 圆角矩形 5个参数：P1x坐标，P1y坐标，P2x坐标，P2y坐标，半径</div><div class="line">// 圆弧有一个点与当前位置到P1线段相切，还有一个点和从P1到P2的线段相切。</div><div class="line">// 这两个切点就是圆弧的起点和终点</div><div class="line">ctx.arcTo(120, 20, 120, 40, 20);  //绘制圆弧</div><div class="line"></div><div class="line">// 绘制圆角矩形</div><div class="line">ctx.strokeStyle = &quot;blue&quot;;</div><div class="line">ctx.beginPath();</div><div class="line">ctx.moveTo(360, 20);</div><div class="line">ctx.lineTo(480, 20);</div><div class="line">ctx.arcTo(500, 20, 500, 40, 20);</div><div class="line">ctx.lineTo(500, 140);</div><div class="line">ctx.arcTo(500, 160, 480, 160, 20);</div><div class="line">ctx.lineTo(360, 160);</div><div class="line">ctx.arcTo(340, 160, 340, 140, 20);</div><div class="line">ctx.lineTo(340, 40);</div><div class="line">ctx.arcTo(340, 20, 360, 20, 20);</div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line">// 擦除canvas画板</div><div class="line">ctx.clearRect(30, 30, 50, 50); // 擦除一个矩形区域</div></pre></td></tr></table></figure>
@@ -138,7 +110,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/01/canvas-learning-1/" data-id="cixe2tm620000hjlxxbntqwfu" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/01/01/canvas-learning-1/" data-id="cixe2tm620000hjlxxbntqwfu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CANVAS/">CANVAS</a></li></ul>
@@ -185,7 +157,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/31/hello-world/" data-id="cixe2tm680001hjlxyifjwzon" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/12/31/hello-world/" data-id="cixe2tm680001hjlxyifjwzon" class="article-share-link">Share</a>
       
       
     </footer>
@@ -205,7 +177,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CANVAS/">CANVAS</a></li></ul>
     </div>
@@ -215,7 +187,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/tags/CANVAS/" style="font-size: 10px;">CANVAS</a>
     </div>
@@ -234,7 +206,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
@@ -259,7 +231,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 沈新新<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
