@@ -124,7 +124,11 @@ body,
 }
 body {
   background: #eee;
+<<<<<<< HEAD
   font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+=======
+  font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+>>>>>>> 8789ec01720fadce866aba01489fc5ec28b79b44
   -webkit-text-size-adjust: 100%;
 }
 .outer {
@@ -482,7 +486,11 @@ body {
   background: none;
   color: #555;
   width: 100%;
+<<<<<<< HEAD
   font: 13px "Helvetica Neue", Helvetica, Arial, sans-serif;
+=======
+  font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+>>>>>>> 8789ec01720fadce866aba01489fc5ec28b79b44
   outline: none;
 }
 .search-form-input::-webkit-search-results-decoration,
@@ -631,7 +639,11 @@ a.article-title:hover {
 .article-entry blockquote footer {
   font-size: 14px;
   margin: 1.6em 0;
+<<<<<<< HEAD
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+=======
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+>>>>>>> 8789ec01720fadce866aba01489fc5ec28b79b44
 }
 .article-entry blockquote footer cite:before {
   content: "—";
@@ -836,7 +848,11 @@ a.article-title:hover {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+<<<<<<< HEAD
   font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+=======
+  font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+>>>>>>> 8789ec01720fadce866aba01489fc5ec28b79b44
   padding: 0 15px;
   color: #555;
   outline: none;
@@ -1195,7 +1211,11 @@ a.article-title:hover {
 .article-entry .gist .gist-file .gist-meta {
   background: #2d2d2d;
   color: #999;
+<<<<<<< HEAD
   font: 0.85em "Helvetica Neue", Helvetica, Arial, sans-serif;
+=======
+  font: 0.85em -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+>>>>>>> 8789ec01720fadce866aba01489fc5ec28b79b44
   text-shadow: 0 0;
   padding: 0;
   margin-top: 1em;
