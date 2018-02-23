@@ -1,0 +1,392 @@
+<!doctype html>
+<html class="theme-next muse use-motion" lang="">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+    <meta name="keywords" content="CANVAS," />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+    <meta name="description" content="第二章 Canvas基本功能
+基本步骤获取canvas上下文1var ctx = c.getContext(&quot;2d&quot;);  // c=canvas元素
+设置样式12ctx.fillStyle = &quot;red&quot;;       // 填充样式ctx.strokeStyle = &quot;purple&quot;;  // 边框样式
+创建路径1ctx.beginPath();             // 创建路径
+移动光">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="HTML5 与 Canvas 游戏开发实战">
+    <meta property="og:url" content="http://yoursite.com/2017/01/01/canvas-learning-1/index.html">
+    <meta property="og:site_name" content="沈新新的博客">
+    <meta property="og:description" content="第二章 Canvas基本功能
+基本步骤获取canvas上下文1var ctx = c.getContext(&quot;2d&quot;);  // c=canvas元素
+设置样式12ctx.fillStyle = &quot;red&quot;;       // 填充样式ctx.strokeStyle = &quot;purple&quot;;  // 边框样式
+创建路径1ctx.beginPath();             // 创建路径
+移动光">
+    <meta property="og:updated_time" content="2017-01-01T06:11:03.000Z">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="HTML5 与 Canvas 游戏开发实战">
+    <meta name="twitter:description" content="第二章 Canvas基本功能
+基本步骤获取canvas上下文1var ctx = c.getContext(&quot;2d&quot;);  // c=canvas元素
+设置样式12ctx.fillStyle = &quot;red&quot;;       // 填充样式ctx.strokeStyle = &quot;purple&quot;;  // 边框样式
+创建路径1ctx.beginPath();             // 创建路径
+移动光">
+    <script type="text/javascript" id="hexo.configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {
+        root: '/',
+        scheme: 'Muse',
+        sidebar: { "position": "left", "display": "post" },
+        fancybox: true,
+        motion: true,
+        duoshuo: {
+            userId: '0',
+            author: 'Author'
+        },
+        algolia: {
+            applicationID: '',
+            apiKey: '',
+            indexName: '',
+            hits: { "per_page": 10 },
+            labels: { "input_placeholder": "Search for Posts", "hits_empty": "We didn't find any results for the search: ${query}", "hits_stats": "${hits} results found in ${time} ms" }
+        }
+    };
+    </script>
+    <link rel="canonical" href="http://yoursite.com/2017/01/01/canvas-learning-1/" />
+    <title> HTML5 与 Canvas 游戏开发实战 | 沈新新的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+    <div class="container one-collumn sidebar-position-left page-post-detail ">
+        <div class="headband"></div>
+        <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+            <div class="header-inner">
+                <div class="site-meta ">
+                    <div class="custom-logo-site-title">
+                        <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">沈新新的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+                    </div>
+                    <p class="site-subtitle">喂喂喂，等等我</p>
+                </div>
+                <div class="site-nav-toggle">
+                    <button>
+                        <span class="btn-bar"></span>
+                        <span class="btn-bar"></span>
+                        <span class="btn-bar"></span>
+                    </button>
+                </div>
+                <nav class="site-nav">
+                    <ul id="menu" class="menu">
+                        <li class="menu-item menu-item-home">
+                            <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+                        </li>
+                        <li class="menu-item menu-item-archives">
+                            <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+                        </li>
+                        <li class="menu-item menu-item-tags">
+                            <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="main">
+            <div class="main-inner">
+                <div class="content-wrap">
+                    <div id="content" class="content">
+                        <div id="posts" class="posts-expand">
+                            <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+                                <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/01/canvas-learning-1/">
+                                <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="沈新新">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+                                <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="沈新新的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="沈新新的博客" src="">
+    </span>
+                                </span>
+                                <header class="post-header">
+                                    <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                HTML5 与 Canvas 游戏开发实战
+              
+            
+          </h1>
+                                    <div class="post-meta">
+                                        <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+                                        <span class="post-meta-item-text">Veröffentlicht am</span>
+                                        <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-01T11:01:03+08:00">
+                                            2017-01-01
+                                        </time>
+                                        </span>
+                                    </div>
+                                </header>
+                                <div class="post-body" itemprop="articleBody">
+                                    <p>第二章 Canvas基本功能</p>
+                                    <h3 id="基本步骤"><a href="#基本步骤" class="headerlink" title="基本步骤"></a>基本步骤</h3>
+                                    <h5 id="获取canvas上下文"><a href="#获取canvas上下文" class="headerlink" title="获取canvas上下文"></a>获取canvas上下文</h5>
+                                    <figure class="highlight js">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter"><pre><div class="line">1</div></pre></td>
+                                                <td class="code"><pre><div class="line"><span class="keyword">var</span> ctx = c.getContext(<span class="string">"2d"</span>);  <span class="comment">// c=canvas元素</span></div></pre></td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+                                    <h5 id="设置样式"><a href="#设置样式" class="headerlink" title="设置样式"></a>设置样式</h5>
+                                    <figure class="highlight js">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td>
+                                                <td class="code"><pre><div class="line">ctx.fillStyle = <span class="string">"red"</span>;       <span class="comment">// 填充样式</span></div><div class="line">ctx.strokeStyle = <span class="string">"purple"</span>;  <span class="comment">// 边框样式</span></div></pre></td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+                                    <h5 id="创建路径"><a href="#创建路径" class="headerlink" title="创建路径"></a>创建路径</h5>
+                                    <figure class="highlight js">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter"><pre><div class="line">1</div></pre></td>
+                                                <td class="code"><pre><div class="line">ctx.beginPath();             <span class="comment">// 创建路径</span></div></pre></td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+                                    <h5 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h5>
+                                    <figure class="highlight js">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter"><pre><div class="line">1</div></pre></td>
+                                                <td class="code"><pre><div class="line">ctx.moveTo(<span class="number">100</span>, <span class="number">100</span>); <span class="comment">// 移动光标到坐标（100，100）处</span></div></pre></td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+                                    <h5 id="定义路径"><a href="#定义路径" class="headerlink" title="定义路径"></a>定义路径</h5>
+                                    <figure class="highlight js">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter"><pre><div class="line">1</div></pre></td>
+                                                <td class="code"><pre><div class="line">ctx.lineTo(<span class="number">150</span>, <span class="number">150</span>); <span class="comment">// 绘制直线</span></div></pre></td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+                                    <h5 id="绘制"><a href="#绘制" class="headerlink" title="绘制"></a>绘制</h5>
+                                    <figure class="highlight js">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter"><pre><div class="line">1</div></pre></td>
+                                                <td class="code"><pre><div class="line">ctx.stroke();         <span class="comment">// 开始绘制定义好的路径</span></div></pre></td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+                                    <h3 id="绘制基本图形"><a href="#绘制基本图形" class="headerlink" title="绘制基本图形"></a>绘制基本图形</h3>
+                                    <figure class="highlight js">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td>
+                                                <td class="code"><pre><div class="line"><span class="comment">// 矩形 4个参数: 起点x坐标，起点y坐标，矩形长, 矩形宽</span></div><div class="line">ctx.strokeRect(<span class="number">10</span>, <span class="number">10</span>, <span class="number">70</span>, <span class="number">40</span>);  <span class="comment">// 绘制路径矩形</span></div><div class="line">ctx.fillRect();                 <span class="comment">// 绘制实心矩形</span></div><div class="line"></div><div class="line"><span class="comment">// 圆形 6个参数：圆心x坐标，圆心y坐标，圆弧半径，起始角度，终止角度，是否逆时针</span></div><div class="line">ctx.arc(<span class="number">100</span>, <span class="number">100</span>, <span class="number">70</span>, <span class="number">0</span>, <span class="number">130</span> * <span class="built_in">Math</span>.PI / <span class="number">180</span>, <span class="literal">true</span>); <span class="comment">//绘制弧形路径-逆</span></div><div class="line">ctx.arc(<span class="number">100</span>, <span class="number">100</span>, <span class="number">70</span>, <span class="number">0</span>, <span class="number">130</span> * <span class="built_in">Math</span>.PI / <span class="number">180</span>, <span class="literal">false</span>); <span class="comment">//绘制弧形路径-顺</span></div><div class="line">ctx.fill();      <span class="comment">//填充路径</span></div><div class="line"></div><div class="line"><span class="comment">// 圆角矩形 5个参数：P1x坐标，P1y坐标，P2x坐标，P2y坐标，半径</span></div><div class="line"><span class="comment">// 圆弧有一个点与当前位置到P1线段相切，还有一个点和从P1到P2的线段相切。</span></div><div class="line"><span class="comment">// 这两个切点就是圆弧的起点和终点</span></div><div class="line">ctx.arcTo(<span class="number">120</span>, <span class="number">20</span>, <span class="number">120</span>, <span class="number">40</span>, <span class="number">20</span>);  <span class="comment">//绘制圆弧</span></div><div class="line"></div><div class="line"><span class="comment">// 绘制圆角矩形</span></div><div class="line">ctx.strokeStyle = <span class="string">"blue"</span>;</div><div class="line">ctx.beginPath();</div><div class="line">ctx.moveTo(<span class="number">360</span>, <span class="number">20</span>);</div><div class="line">ctx.lineTo(<span class="number">480</span>, <span class="number">20</span>);</div><div class="line">ctx.arcTo(<span class="number">500</span>, <span class="number">20</span>, <span class="number">500</span>, <span class="number">40</span>, <span class="number">20</span>);</div><div class="line">ctx.lineTo(<span class="number">500</span>, <span class="number">140</span>);</div><div class="line">ctx.arcTo(<span class="number">500</span>, <span class="number">160</span>, <span class="number">480</span>, <span class="number">160</span>, <span class="number">20</span>);</div><div class="line">ctx.lineTo(<span class="number">360</span>, <span class="number">160</span>);</div><div class="line">ctx.arcTo(<span class="number">340</span>, <span class="number">160</span>, <span class="number">340</span>, <span class="number">140</span>, <span class="number">20</span>);</div><div class="line">ctx.lineTo(<span class="number">340</span>, <span class="number">40</span>);</div><div class="line">ctx.arcTo(<span class="number">340</span>, <span class="number">20</span>, <span class="number">360</span>, <span class="number">20</span>, <span class="number">20</span>);</div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line"><span class="comment">// 擦除canvas画板</span></div><div class="line">ctx.clearRect(<span class="number">30</span>, <span class="number">30</span>, <span class="number">50</span>, <span class="number">50</span>); <span class="comment">// 擦除一个矩形区域</span></div></pre></td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+                                    <h3 id="绘制复杂图形"><a href="#绘制复杂图形" class="headerlink" title="绘制复杂图形"></a>绘制复杂图形</h3>
+                                    <figure class="highlight js">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td>
+                                                <td class="code"><pre><div class="line"><span class="comment">// 画曲线</span></div><div class="line"><span class="comment">// 1. 二次贝塞尔曲线 4个参数：控制点x坐标，控制点y坐标，终点x坐标，终点y坐标</span></div><div class="line">ctx.quadraticCurveTo(<span class="number">20</span>, <span class="number">50</span>, <span class="number">200</span>, <span class="number">20</span>);</div><div class="line"></div><div class="line"><span class="comment">// 2. 三次贝塞尔曲线</span></div><div class="line">ctx.bezierCurveTo(cX1, cY2, cX2, cY2, endX, endY);</div><div class="line"></div><div class="line"><span class="comment">// 3. clip 在指定区域绘图</span></div><div class="line">ctx.arc(<span class="number">100</span>, <span class="number">100</span>, <span class="number">40</span>, <span class="number">0</span>, <span class="number">2</span> * <span class="built_in">Math</span>.PI, <span class="literal">true</span>); <span class="comment">// 限制区域</span></div><div class="line">ctx.clip();                                  <span class="comment">// 进行裁剪</span></div><div class="line"></div><div class="line"><span class="comment">// 4. 绘制自定义图形</span></div><div class="line">ctx.beginPath();</div><div class="line">    ctx.moveTo(pointX, pointY);</div><div class="line">    ctx.bezierCurveTo(p1x, p1y, p2x, p2y, p3x, p3y);</div><div class="line">    ctx.bezierCurveTo(o1x, o1y, o2x, o2y, o3x, o3y);</div><div class="line">    ctx.bezierCurveTo(i1x, i1y, i2x, i2y, i3x, i3y);</div><div class="line">    ctx.bezierCurveTo(u1x, u1y, u2x, u2y, u3x, u3y);</div><div class="line">    ctx.moveTo(pointX, pointY);</div><div class="line">    ctx.lineTo(qx, qy);</div><div class="line">    ctx.lineTo(wx, wy);</div><div class="line">    ctx.lineTo(ex, ey);</div><div class="line">    ctx.lineTo(pointX, pointY);</div><div class="line">    ctx.strokeStyle = <span class="string">"red"</span>;</div><div class="line">    ctx.stroke();</div></pre></td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+                                    <h3 id="绘制文本"><a href="#绘制文本" class="headerlink" title="绘制文本"></a>绘制文本</h3>
+                                    <figure class="highlight js">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td>
+                                                <td class="code"><pre><div class="line"><span class="comment">// 1. fillText 4个参数: 文本内容，坐标x, 坐标y, 宽度</span></div><div class="line">ctx.font = <span class="string">"30px Arial"</span>;</div><div class="line">ctx.fillText(<span class="string">"Hello world"</span>, <span class="number">100</span>, <span class="number">50</span>, <span class="number">50</span>);</div><div class="line"></div><div class="line"><span class="comment">// 2. strokeText</span></div><div class="line">ctx.strokeText(<span class="string">"Hello world"</span>, <span class="number">100</span>, <span class="number">50</span>, <span class="number">50</span>);</div><div class="line"></div><div class="line"><span class="comment">// 3. 设置字体 参数： 斜体 粗体 字号 字体</span></div><div class="line">ctx.font = <span class="string">"italic bold 30px Arial"</span>;</div><div class="line"></div><div class="line"><span class="comment">// 4. 左右对齐方式start=left end=right center</span></div><div class="line">ctx.textAlign = <span class="string">"start"</span>;</div><div class="line"></div><div class="line"><span class="comment">// 5. 垂直对齐方式 alphabetic, bottom, hanging, ideographic, middle, top</span></div><div class="line">ctx.textBaseline = <span class="string">"alphabetic"</span>;</div></pre></td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+                                    <h3 id="图片操作"><a href="#图片操作" class="headerlink" title="图片操作"></a>图片操作</h3>
+                                    <figure class="highlight js">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td>
+                                                <td class="code"><pre><div class="line"><span class="comment">// 三种函数原型</span></div><div class="line">drawImage(image, dx, dy);</div><div class="line">drawImage(image, dx, dy, dw, dh);</div><div class="line">drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh);</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 第一种 从坐标（10，10）开始绘制整张图片</span></div><div class="line"><span class="keyword">var</span> c = <span class="built_in">document</span>.getElementById(<span class="string">"myCanvas"</span>);</div><div class="line"><span class="keyword">var</span> ctx = c.getContext(<span class="string">"2d"</span>);</div><div class="line"><span class="keyword">var</span> img = <span class="built_in">document</span>.getElementById(<span class="string">"myImage"</span>);</div><div class="line">ctx.drawImage(img, <span class="number">10</span>, <span class="number">10</span>);</div><div class="line"></div><div class="line"><span class="comment">// 第二种 从坐标（10，320）开始绘制整张图片到宽375高150的矩形区域内</span></div><div class="line">ctx.drawImage(img, <span class="number">10</span>, <span class="number">320</span>, <span class="number">375</span>, <span class="number">150</span>);</div><div class="line"></div><div class="line"><span class="comment">// 第三种 从坐标（330，0）开始截取一个120*120的区域，</span></div><div class="line"><span class="comment">// 从坐标（400,320)开始,将截取到的图片绘制到120*120的区域内</span></div><div class="line">ctx.drawImage(img, <span class="number">330</span>, <span class="number">0</span>, <span class="number">120</span>, <span class="number">120</span>, <span class="number">400</span>, <span class="number">320</span>, <span class="number">120</span>, <span class="number">120</span>);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 利用getImageData和putImageData绘制图片</span></div><div class="line"><span class="comment">// 从canvas中获取图片像素点的数据</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> imgData = ctx.getImageData(<span class="number">350</span>, <span class="number">50</span>, <span class="number">300</span>, <span class="number">200</span>);</div><div class="line">ctx.putImageData(imgData, <span class="number">10</span>, <span class="number">500</span>);</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 利用createImageData新建像素</span></div><div class="line"><span class="keyword">var</span> imgData1 = ctx.createImageData(imgData);</div><div class="line"><span class="keyword">for</span> ( <span class="keyword">var</span> i = <span class="number">0</span>; i &lt; imgData1.width * imgData1.height * <span class="number">4</span>; i += <span class="number">4</span> ) &#123;</div><div class="line">    imgData1.data[i + <span class="number">0</span>] = <span class="number">255</span>;</div><div class="line">    imgData1.data[i + <span class="number">1</span>] = <span class="number">0</span>;</div><div class="line">    imgData1.data[i + <span class="number">2</span>] = <span class="number">0</span>;</div><div class="line">    imgData1.data[i + <span class="number">3</span>] = <span class="number">255</span>;</div><div class="line">&#125;</div><div class="line">ctx.putImageData(imgData1, <span class="number">320</span>, <span class="number">500</span>);</div></pre></td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+                                </div>
+                                <div>
+                                </div>
+                                <div>
+                                </div>
+                                <footer class="post-footer">
+                                    <div class="post-tags">
+                                        <a href="/tags/CANVAS/" rel="tag"># CANVAS</a>
+                                    </div>
+                                    <div class="post-nav">
+                                        <div class="post-nav-next post-nav-item">
+                                            <a href="/2016/12/31/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+                                        </div>
+                                        <span class="post-nav-divider"></span>
+                                        <div class="post-nav-prev post-nav-item">
+                                            <a href="/2017/01/01/canvas-learning-2/" rel="prev" title="HTML5 与 Canvas 游戏开发实战二">
+                HTML5 与 Canvas 游戏开发实战二 <i class="fa fa-chevron-right"></i>
+              </a>
+                                        </div>
+                                    </div>
+                                </footer>
+                            </article>
+                            <div class="post-spread">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comments" id="comments">
+                    </div>
+                </div>
+                <div class="sidebar-toggle">
+                    <div class="sidebar-toggle-line-wrap">
+                        <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+                        <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+                        <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+                    </div>
+                </div>
+                <aside id="sidebar" class="sidebar">
+                    <div class="sidebar-inner">
+                        <ul class="sidebar-nav motion-element">
+                            <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+                                Inhaltsverzeichnis
+                            </li>
+                            <li class="sidebar-nav-overview" data-target="site-overview">
+                                Übersicht
+                            </li>
+                        </ul>
+                        <section class="site-overview sidebar-panel">
+                            <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="沈新新" />
+                                <p class="site-author-name" itemprop="name">沈新新</p>
+                                <p class="site-description motion-element" itemprop="description"></p>
+                            </div>
+                            <nav class="site-state motion-element">
+                                <div class="site-state-item site-state-posts">
+                                    <a href="/archives">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+                                </div>
+                                <div class="site-state-item site-state-tags">
+                                    <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+                                </div>
+                            </nav>
+                            <div class="links-of-author motion-element">
+                            </div>
+                        </section>
+                        <!--noindex-->
+                        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+                            <div class="post-toc">
+                                <div class="post-toc-content">
+                                    <ol class="nav">
+                                        <li class="nav-item nav-level-3"><a class="nav-link" href="#基本步骤"><span class="nav-number">1.</span> <span class="nav-text">基本步骤</span></a>
+                                            <ol class="nav-child">
+                                                <li class="nav-item nav-level-5"><a class="nav-link" href="#获取canvas上下文"><span class="nav-number">1.0.1.</span> <span class="nav-text">获取canvas上下文</span></a></li>
+                                                <li class="nav-item nav-level-5"><a class="nav-link" href="#设置样式"><span class="nav-number">1.0.2.</span> <span class="nav-text">设置样式</span></a></li>
+                                                <li class="nav-item nav-level-5"><a class="nav-link" href="#创建路径"><span class="nav-number">1.0.3.</span> <span class="nav-text">创建路径</span></a></li>
+                                                <li class="nav-item nav-level-5"><a class="nav-link" href="#移动光标"><span class="nav-number">1.0.4.</span> <span class="nav-text">移动光标</span></a></li>
+                                                <li class="nav-item nav-level-5"><a class="nav-link" href="#定义路径"><span class="nav-number">1.0.5.</span> <span class="nav-text">定义路径</span></a></li>
+                                                <li class="nav-item nav-level-5"><a class="nav-link" href="#绘制"><span class="nav-number">1.0.6.</span> <span class="nav-text">绘制</span></a></li>
+                                            </ol>
+                                        </li>
+                                    </ol>
+                                    </li>
+                                    <li class="nav-item nav-level-3"><a class="nav-link" href="#绘制基本图形"><span class="nav-number">2.</span> <span class="nav-text">绘制基本图形</span></a></li>
+                                    <li class="nav-item nav-level-3"><a class="nav-link" href="#绘制复杂图形"><span class="nav-number">3.</span> <span class="nav-text">绘制复杂图形</span></a></li>
+                                    <li class="nav-item nav-level-3"><a class="nav-link" href="#绘制文本"><span class="nav-number">4.</span> <span class="nav-text">绘制文本</span></a></li>
+                                    <li class="nav-item nav-level-3"><a class="nav-link" href="#图片操作"><span class="nav-number">5.</span> <span class="nav-text">图片操作</span></a></li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </section>
+                        <!--/noindex-->
+                    </div>
+                </aside>
+            </div>
+        </main>
+        <footer id="footer" class="footer">
+            <div class="footer-inner">
+                <div class="copyright">
+                    &copy;
+                    <span itemprop="copyrightYear">2017</span>
+                    <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+                    <span class="author" itemprop="copyrightHolder">沈新新</span>
+                </div>
+                <div class="powered-by">
+                    Erstellt mit <a class="theme-link" href="https://hexo.io">Hexo</a>
+                </div>
+                <div class="theme-info">
+                    Theme -
+                    <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+                </div>
+            </div>
+        </footer>
+        <div class="back-to-top">
+            <i class="fa fa-arrow-up"></i>
+        </div>
+    </div>
+    <script type="text/javascript">
+    if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+        window.Promise = null;
+    }
+    </script>
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+    <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+    <script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+    <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+</body>
+
+</html>

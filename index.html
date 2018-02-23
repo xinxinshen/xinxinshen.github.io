@@ -61,6 +61,131 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-learngit" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="2018/02/23/learngit/" class="article-date">
+  <time datetime="2018-02-23T09:17:39.000Z" itemprop="datePublished">2018-02-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2018/02/23/learngit/">learngit</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="廖雪峰git教程笔记"><a href="#廖雪峰git教程笔记" class="headerlink" title="廖雪峰git教程笔记"></a>廖雪峰git教程笔记</h1><h4 id="集中式版本控制系统-vs-分布式版本控制系统"><a href="#集中式版本控制系统-vs-分布式版本控制系统" class="headerlink" title="集中式版本控制系统 vs 分布式版本控制系统"></a>集中式版本控制系统 vs 分布式版本控制系统</h4><ul>
+<li>集中式版本控制系统：版本库集中存放在中央服务器，需要联网才能工作</li>
+<li>分布式版本控制系统：每个人电脑上都是一个完整的版本库。</li>
+<li>分布式版本控制系统通常也有一台充当“中央服务器”的电脑，但是这个服务器的作用仅仅用来方便“交换”大家的修改</li>
+</ul>
+<h4 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h4><ul>
+<li><p>HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令git reset –hard commit_id。</p>
+</li>
+<li><p>穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本。</p>
+</li>
+<li><p>要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。</p>
+</li>
+</ul>
+<p>在Git中， 用<em>HEAD</em>表示当前版本</p>
+<p>–hard参数的意义？</p>
+<p>工作区—-暂存区—-分支</p>
+<h4 id="管理修改"><a href="#管理修改" class="headerlink" title="管理修改"></a>管理修改</h4><pre><code>Git管理的是修改，而不是文件
+git checkout -- file可以丢弃工作区的修改
+</code></pre><p>用命令git reset HEAD file可以把暂存区的修改撤销掉（unstage），重新放回工作区</p>
+<p>场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout – file。</p>
+<p>场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。</p>
+<p>场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库。</p>
+<h4 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h4><p>要关联一个远程库，使用命令git remote add origin git@server-name:path/repo-name.git；</p>
+<p>关联后，使用命令git push -u origin master第一次推送master分支的所有内容；</p>
+<p>此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；</p>
+<h5 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h5><pre><code>查看分支：git branch
+
+创建分支：git branch &lt;name&gt;
+
+切换分支：git checkout &lt;name&gt;
+
+创建+切换分支：git checkout -b &lt;name&gt;
+
+合并某分支到当前分支：git merge &lt;name&gt;
+
+删除分支：git branch -d &lt;name&gt;
+</code></pre><h5 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h5><p>用git log –graph命令可以看到分支合并图。</p>
+<h5 id="分支管理策略"><a href="#分支管理策略" class="headerlink" title="分支管理策略"></a>分支管理策略</h5><p>通常在合并分支的时候，如果可能Git会用Fast forward模式，但是，在这种模式下，删除分支后，会丢掉分支信息。</p>
+<p>如果要强制禁用Fast forward模式，Git会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息。</p>
+<p>合并分支时，加上–no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。</p>
+<h5 id="Bug分支"><a href="#Bug分支" class="headerlink" title="Bug分支"></a>Bug分支</h5><p>修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除；</p>
+<p>当手头工作没有完成时，先把工作现场git stash一下，然后去修复bug，修复后，再git stash pop，回到工作现场。</p>
+<p>开发一个新feature，最好新建一个分支；</p>
+<p>如果要丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除。</name></p>
+<h5 id="多人协作"><a href="#多人协作" class="headerlink" title="多人协作"></a>多人协作</h5><ul>
+<li><p>首先，可以试图用git push origin branch-name推送自己的修改；</p>
+</li>
+<li><p>如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；</p>
+</li>
+<li><p>如果合并有冲突，则解决冲突，并在本地提交；</p>
+</li>
+<li><p>没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！</p>
+</li>
+</ul>
+<p>如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch –set-upstream branch-name origin/branch-name。</p>
+<h4 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h4><p>发布一个版本的时候，我们通常在版本库中打一个标签，这样就唯一确定了打标签时刻的版本。将来无论什么时候，取某个标签的版本，就是把那个打标签的时刻的历史版本取出来。所以标签也是版本库的一个快照。</p>
+<p>其本质是指向某个commit的指针</p>
+<p>分支vs标签： 分支可以移动，标签不可以</p>
+<p>为什么要引入tag：tag是一个更容易让人记住的有意义的名字，它跟某个commit绑在一起。</p>
+<pre><code>命令git tag &lt;name&gt;用于新建一个标签，默认为HEAD，也可以指定一个commit id；
+
+git tag -a &lt;tagname&gt; -m &quot;blablabla...&quot;可以指定标签信息；
+
+git tag -s &lt;tagname&gt; -m &quot;blablabla...&quot;可以用PGP签名标签；
+
+命令git tag可以查看所有标签。
+</code></pre><p>操作标签：</p>
+<pre><code>命令git push origin &lt;tagname&gt;可以推送一个本地标签；
+
+命令git push origin --tags可以推送全部未推送过的本地标签；
+
+命令git tag -d &lt;tagname&gt;可以删除一个本地标签；
+
+命令git push origin :refs/tags/&lt;tagname&gt;可以删除一个远程标签。
+</code></pre><h5 id="忽略特殊文件"><a href="#忽略特殊文件" class="headerlink" title="忽略特殊文件"></a>忽略特殊文件</h5><p>忽略某些文件时，需要编写.gitignore；</p>
+<p>.gitignore文件本身要放到版本库里，并且可以对.gitignore做版本管理！</p>
+<h5 id="配置别名"><a href="#配置别名" class="headerlink" title="配置别名"></a>配置别名</h5><pre><code>git config --global alias.st status
+git config --global alias.co checkout
+git config --global alias.ci commit
+git config --global alias.br branch
+git config --global alias.unstage &apos;reset HEAD&apos;
+// 散心病狂？ nonono 一点都不
+git config --global alias.lg &quot;log --color --graph --pretty=format:&apos;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&apos; --abbrev-commit&quot;
+</code></pre><h5 id="Problem-amp-Solution"><a href="#Problem-amp-Solution" class="headerlink" title="Problem &amp; Solution"></a>Problem &amp; Solution</h5><p>Problem1:</p>
+<pre><code>refusing to merge unrelated histories
+</code></pre><p>Solution:</p>
+<pre><code>You can use --allow-unrelated-histories to force the merge to happen.
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/23/learngit/" data-id="cjdzq5f7k0000bt9l7pru95x9" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/git/">git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-what-2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="2018/02/21/what-2/" class="article-date">
@@ -196,7 +321,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/21/what-2/" data-id="cjdvxdoah0001h79lgt84jnn9" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/21/what-2/" data-id="cjdzq5f880003bt9lil71k32p" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/basic/">basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/tech/">tech</a></li></ul>
@@ -283,7 +408,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/12/tomato/" data-id="cjdvxdoab0000h79lczss7dzr" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/12/tomato/" data-id="cjdzq5f7r0001bt9lmlsry3nb" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Efficiency/">Efficiency</a></li></ul>
@@ -315,7 +440,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="tags/Efficiency/">Efficiency</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/basic/">basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/tech/">tech</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="tags/Efficiency/">Efficiency</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/basic/">basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/tech/">tech</a></li></ul>
     </div>
   </div>
 
@@ -325,7 +450,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="tags/Efficiency/" style="font-size: 10px;">Efficiency</a> <a href="tags/basic/" style="font-size: 10px;">basic</a> <a href="tags/tech/" style="font-size: 10px;">tech</a>
+      <a href="tags/Efficiency/" style="font-size: 10px;">Efficiency</a> <a href="tags/basic/" style="font-size: 10px;">basic</a> <a href="tags/git/" style="font-size: 10px;">git</a> <a href="tags/tech/" style="font-size: 10px;">tech</a>
     </div>
   </div>
 
@@ -345,6 +470,10 @@
     <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="2018/02/23/learngit/">learngit</a>
+          </li>
         
           <li>
             <a href="2018/02/21/what-2/">What happens when ...?</a>
