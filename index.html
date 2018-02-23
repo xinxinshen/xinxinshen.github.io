@@ -83,10 +83,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="集中式版本控制系统-vs-分布式版本控制系统"><a href="#集中式版本控制系统-vs-分布式版本控制系统" class="headerlink" title="集中式版本控制系统 vs 分布式版本控制系统"></a>集中式版本控制系统 vs 分布式版本控制系统</h4><ul>
-<li>集中式版本控制系统：版本库集中存放在中央服务器，需要联网才能工作</li>
-<li>分布式版本控制系统：每个人电脑上都是一个完整的版本库。</li>
-<li>分布式版本控制系统通常也有一台充当“中央服务器”的电脑，但是这个服务器的作用仅仅用来方便“交换”大家的修改</li>
+        <p>先贴上官方网站：<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a></p>
+<p>以下是学习过程中的笔记。</p>
+<h4 id="集中式版本控制系统-vs-分布式版本控制系统"><a href="#集中式版本控制系统-vs-分布式版本控制系统" class="headerlink" title="集中式版本控制系统 vs 分布式版本控制系统"></a>集中式版本控制系统 vs 分布式版本控制系统</h4><ul>
+<li><p>集中式版本控制系统：版本库集中存放在中央服务器，需要联网才能工作</p>
+</li>
+<li><p>分布式版本控制系统：每个人电脑上都是一个完整的版本库。</p>
+</li>
+<li><p>分布式版本控制系统通常也有一台充当“中央服务器”的电脑，但是这个服务器的作用仅仅用来方便“交换”大家的修改</p>
+</li>
 </ul>
 <h4 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h4><ul>
 <li><p>HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令git reset –hard commit_id。</p>
@@ -97,8 +102,6 @@
 </li>
 </ul>
 <p>在Git中， 用<em>HEAD</em>表示当前版本</p>
-<p>–hard参数的意义？</p>
-<p>工作区—-暂存区—-分支</p>
 <h4 id="管理修改"><a href="#管理修改" class="headerlink" title="管理修改"></a>管理修改</h4><pre><code>Git管理的是修改，而不是文件
 git checkout -- file可以丢弃工作区的修改
 </code></pre><p>用命令git reset HEAD file可以把暂存区的修改撤销掉（unstage），重新放回工作区</p>
@@ -166,7 +169,10 @@ git config --global alias.br branch
 git config --global alias.unstage &apos;reset HEAD&apos;
 // 散心病狂？ nonono 一点都不
 git config --global alias.lg &quot;log --color --graph --pretty=format:&apos;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&apos; --abbrev-commit&quot;
-</code></pre><h5 id="Problem-amp-Solution"><a href="#Problem-amp-Solution" class="headerlink" title="Problem &amp; Solution"></a>Problem &amp; Solution</h5><p>Problem1:</p>
+</code></pre><h5 id="–hard参数的意义？"><a href="#–hard参数的意义？" class="headerlink" title="–hard参数的意义？"></a>–hard参数的意义？</h5><p>文章中说要告诉我hard的意义，但是…然后就没有然后了。<br>查了一下，下面三幅图我觉得能比较直观地解释。<br>–soft<br><img src="/2018/02/23/learngit/182237338854646.png"><br>–mixed（default）<br><img src="/2018/02/23/learngit/182238202609380.png"><br>–hard<br><img src="/2018/02/23/learngit/182238305101646.png"></p>
+<p>参考链接：<a href="http://www.cnblogs.com/kidsitcn/p/4513297.html" target="_blank" rel="noopener">http://www.cnblogs.com/kidsitcn/p/4513297.html</a></p>
+<p>工作区—-暂存区—-分支</p>
+<h5 id="Problem-amp-Solution"><a href="#Problem-amp-Solution" class="headerlink" title="Problem &amp; Solution"></a>Problem &amp; Solution</h5><p>Problem1:</p>
 <pre><code>refusing to merge unrelated histories
 </code></pre><p>Solution:</p>
 <pre><code>You can use --allow-unrelated-histories to force the merge to happen.
